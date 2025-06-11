@@ -1,6 +1,6 @@
-@extends('layouts.app') <!--Herança de layout-->
+@extends('layouts.app') 
 
-@section('content') <!--Conteúdo da página-->
+@section('content') 
 <divclass="container">
     <div class="row justify-content-center">
         <div class="col-md-8"> 
@@ -95,7 +95,7 @@ document.getElementById('taskForm').addEventListener('submit', function(e) {
     // Desabilita o botão de submit
     document.getElementById('submitBtn').disabled = true;
     
-    // Opcional: Adiciona um texto de "Salvando..."
+    // Adiciona um texto de "Salvando..."
     document.getElementById('submitBtn').innerHTML = 'Salvando...';
 });
 </script>
