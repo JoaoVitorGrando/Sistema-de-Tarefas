@@ -13,18 +13,29 @@
                         </a>
                     </div>
 
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul class="mb-0">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                     <form action="{{ route('tasks.update', $task) }}" method="POST">
                         @csrf
                         @method('PUT')
                         
                         <div class="mb-4">
-                            <label for="title" class="form-label">Título</label>
+                            <label for="title" class="form-label">Título <small class="text-muted">(máximo 30 caracteres)</small></label>
                             <input type="text" 
                                    class="form-control @error('title') is-invalid @enderror" 
                                    id="title" 
                                    name="title" 
                                    value="{{ old('title', $task->title) }}" 
                                    placeholder="Digite o título da tarefa"
+                                   maxlength="30"
                                    required>
                             @error('title')
                                 <div class="invalid-feedback">
@@ -34,11 +45,12 @@
                         </div>
 
                         <div class="mb-4">
-                            <label for="description" class="form-label">Descrição</label>
+                            <label for="description" class="form-label">Descrição <small class="text-muted">(máximo 80 caracteres)</small></label>
                             <textarea class="form-control @error('description') is-invalid @enderror" 
                                       id="description" 
                                       name="description" 
                                       rows="4" 
+                                      maxlength="80"
                                       placeholder="Digite a descrição da tarefa">{{ old('description', $task->description) }}</textarea>
                             @error('description')
                                 <div class="invalid-feedback">
@@ -49,6 +61,7 @@
 
                         <div class="mb-4">
                             <div class="form-check">
+                                <input type="hidden" name="completed" value="0">
                                 <input type="checkbox" 
                                        class="form-check-input @error('completed') is-invalid @enderror" 
                                        id="completed" 

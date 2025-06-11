@@ -10,4 +10,4 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 }
-//s Controllers, como o TaskController.php, atuam como intermediários, processando as requisições dos usuários, interagindo com os Models e selecionando a View apropriada para exibir a resposta
+//s Controllers, como o TaskController.php processa as requisições dos usuários, interagindo com os Models e selecionando a View apropriada para exibir a resposta

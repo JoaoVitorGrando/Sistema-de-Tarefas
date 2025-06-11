@@ -1,7 +1,6 @@
 <?php
 
-namespace App\Models; // Task.php e User.php, representam as entidades do nosso banco de dados e contêm a lógica para interagir com as tabelas correspondentes (tarefas e usuários)."
-
+namespace App\Models; // Define a estrutura da tabela tasks no banco
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,7 +12,7 @@ class Task extends Model
         'title',
         'description',
         'completed',
-        'user_id'
+        'user_id' 
     ];
 
     protected $casts = [

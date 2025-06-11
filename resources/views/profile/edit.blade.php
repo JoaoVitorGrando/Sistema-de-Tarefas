@@ -15,7 +15,7 @@
 
                     <form method="POST" action="{{ route('profile.update') }}" class="mb-4">
                         @csrf
-                        @method('PUT')
+                        @method('PATCH')
 
                         <div class="mb-4">
                             <label for="name" class="form-label">Nome</label>
@@ -93,46 +93,7 @@
                             </button>
                         </form>
                     </div>
-
-                    <hr class="my-4">
-
-                    <div>
-                        <h3 class="h4 mb-3 text-danger">Excluir Conta</h3>
-                        <p class="text-secondary mb-3">Depois que sua conta for excluída, todos os seus recursos e dados serão permanentemente excluídos.</p>
-                        
-                        <button type="button" 
-                                class="btn btn-danger" 
-                                data-bs-toggle="modal" 
-                                data-bs-target="#deleteAccountModal">
-                            <i class="fas fa-trash me-2"></i> Excluir Conta
-                        </button>
-                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal de Confirmação de Exclusão -->
-<div class="modal fade" id="deleteAccountModal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Confirmar Exclusão</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <p>Tem certeza que deseja excluir sua conta? Esta ação não pode ser desfeita.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <form method="POST" action="{{ route('profile.destroy') }}">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">
-                        <i class="fas fa-trash me-2"></i> Confirmar Exclusão
-                    </button>
-                </form>
             </div>
         </div>
     </div>
